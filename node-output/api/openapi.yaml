@@ -31,6 +31,20 @@ tags:
     description: Find out more about our store
     url: http://swagger.io
 paths:
+  /opportunities:
+    get:
+      tags:
+      - opportunity
+      summary: Find all opportunities
+      operationId: findAllOpportunities
+      responses:
+        "200":
+          description: successful Operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_200'
+      x-swagger-router-controller: Opportunity
   /pet:
     put:
       tags:
@@ -665,6 +679,80 @@ components:
         id: 1
       xml:
         name: Tag
+    opportunityListObj:
+      required:
+      - isPeerReviewRequested
+      - opportunities
+      - patientInfo
+      - reviewRequestedPhysicianName
+      type: object
+      properties:
+        isPeerReviewRequested:
+          type: boolean
+          example: true
+        reviewRequestedPhysicianName:
+          type: string
+          example: M. Sing
+        opportunities:
+          type: array
+          items:
+            $ref: '#/components/schemas/opportunity'
+        patientInfo:
+          $ref: '#/components/schemas/opportunityListObj_patientInfo'
+      example:
+        reviewRequestedPhysicianName: M. Sing
+        isPeerReviewRequested: true
+        patientInfo:
+          firstName: Andrew
+          lastName: Lange
+          gender: M
+          dateOfService: 24-May-2021
+          age: 39
+        opportunities:
+        - isEducationalTipAvailable: false
+          comment: Patient appears to be partially responding or appears to have minor
+            complication.
+          isHelpfulSelected: false
+          category: "Critical Care: Insufficient critical care statement"
+          isNotHelpfulSelected: false
+        - isEducationalTipAvailable: false
+          comment: Patient appears to be partially responding or appears to have minor
+            complication.
+          isHelpfulSelected: false
+          category: "Critical Care: Insufficient critical care statement"
+          isNotHelpfulSelected: false
+    opportunity:
+      required:
+      - category
+      - comment
+      - isEducationalTipAvailable
+      - isHelpfulSelected
+      - isNotHelpfulSelected
+      type: object
+      properties:
+        category:
+          type: string
+          example: "Critical Care: Insufficient critical care statement"
+        comment:
+          type: string
+          example: Patient appears to be partially responding or appears to have minor
+            complication.
+        isEducationalTipAvailable:
+          type: boolean
+          example: false
+        isHelpfulSelected:
+          type: boolean
+          example: false
+        isNotHelpfulSelected:
+          type: boolean
+          example: false
+      example:
+        isEducationalTipAvailable: false
+        comment: Patient appears to be partially responding or appears to have minor
+          complication.
+        isHelpfulSelected: false
+        category: "Critical Care: Insufficient critical care statement"
+        isNotHelpfulSelected: false
     Pet:
       required:
       - name
@@ -731,6 +819,58 @@ components:
         code: 0
         type: type
         message: message
+    inline_response_200:
+      type: object
+      properties:
+        data:
+          type: array
+          description: all opportunity objects
+          items:
+            $ref: '#/components/schemas/opportunityListObj'
+      example:
+        data:
+        - reviewRequestedPhysicianName: M. Sing
+          isPeerReviewRequested: true
+          patientInfo:
+            firstName: Andrew
+            lastName: Lange
+            gender: M
+            dateOfService: 24-May-2021
+            age: 39
+          opportunities:
+          - isEducationalTipAvailable: false
+            comment: Patient appears to be partially responding or appears to have
+              minor complication.
+            isHelpfulSelected: false
+            category: "Critical Care: Insufficient critical care statement"
+            isNotHelpfulSelected: false
+          - isEducationalTipAvailable: false
+            comment: Patient appears to be partially responding or appears to have
+              minor complication.
+            isHelpfulSelected: false
+            category: "Critical Care: Insufficient critical care statement"
+            isNotHelpfulSelected: false
+        - reviewRequestedPhysicianName: M. Sing
+          isPeerReviewRequested: true
+          patientInfo:
+            firstName: Andrew
+            lastName: Lange
+            gender: M
+            dateOfService: 24-May-2021
+            age: 39
+          opportunities:
+          - isEducationalTipAvailable: false
+            comment: Patient appears to be partially responding or appears to have
+              minor complication.
+            isHelpfulSelected: false
+            category: "Critical Care: Insufficient critical care statement"
+            isNotHelpfulSelected: false
+          - isEducationalTipAvailable: false
+            comment: Patient appears to be partially responding or appears to have
+              minor complication.
+            isHelpfulSelected: false
+            category: "Critical Care: Insufficient critical care statement"
+            isNotHelpfulSelected: false
     pet_petId_body:
       type: object
       properties:
@@ -740,6 +880,29 @@ components:
         status:
           type: string
           description: Updated status of the pet
+    opportunityListObj_patientInfo:
+      properties:
+        firstName:
+          type: string
+          example: Andrew
+        lastName:
+          type: string
+          example: Lange
+        age:
+          type: number
+          example: 39
+        gender:
+          type: string
+          example: M
+        dateOfService:
+          type: string
+          example: 24-May-2021
+      example:
+        firstName: Andrew
+        lastName: Lange
+        gender: M
+        dateOfService: 24-May-2021
+        age: 39
   requestBodies:
     Pet:
       description: Pet object that needs to be added to the store
