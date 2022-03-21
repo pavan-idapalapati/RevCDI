@@ -63,11 +63,11 @@ exports.findAllOpportunities = function (body) {
             charts: [
               {
                 name: "Main notes",
-                url: "/samplePdf.pdf",
+                url: "/revcdi2/samplePdf.pdf",
               },
               {
                 name: "Lab notes",
-                url: "/samplePdf.pdf",
+                url: "/revcdi2/samplePdf.pdf",
               },
             ],
           },
@@ -107,11 +107,11 @@ exports.findAllOpportunities = function (body) {
               charts: [
                 {
                   name: "Main notes",
-                  url: "/samplePdf.pdf",
+                  url: "/revcdi2/samplePdf.pdf",
                 },
                 {
                   name: "Lab notes",
-                  url: "/samplePdf.pdf",
+                  url: "/revcdi2/samplePdf.pdf",
                 },
               ],
             },
@@ -141,11 +141,11 @@ exports.findAllOpportunities = function (body) {
               charts: [
                 {
                   name: "Main notes",
-                  url: "/samplePdf.pdf",
+                  url: "/revcdi2/samplePdf.pdf",
                 },
                 {
                   name: "Lab notes",
-                  url: "/samplePdf.pdf",
+                  url: "/revcdi2/samplePdf.pdf",
                 },
               ],
             },
@@ -169,11 +169,11 @@ exports.findAllOpportunities = function (body) {
               charts: [
                 {
                   name: "Main notes",
-                  url: "/samplePdf.pdf",
+                  url: "/revcdi2/samplePdf.pdf",
                 },
                 {
                   name: "Lab notes",
-                  url: "/samplePdf.pdf",
+                  url: "/revcdi2/samplePdf.pdf",
                 },
               ],
             },
@@ -185,11 +185,11 @@ exports.findAllOpportunities = function (body) {
               charts: [
                 {
                   name: "Main notes",
-                  url: "/samplePdf.pdf",
+                  url: "/revcdi2/samplePdf.pdf",
                 },
                 {
                   name: "Lab notes",
-                  url: "/samplePdf.pdf",
+                  url: "/revcdi2/samplePdf.pdf",
                 },
               ],
             },
@@ -200,11 +200,11 @@ exports.findAllOpportunities = function (body) {
               charts: [
                 {
                   name: "Main notes",
-                  url: "/samplePdf.pdf",
+                  url: "/revcdi2/samplePdf.pdf",
                 },
                 {
                   name: "Lab notes",
-                  url: "/samplePdf.pdf",
+                  url: "/revcdi2/samplePdf.pdf",
                 },
               ],
             },
@@ -256,11 +256,11 @@ exports.findAllOpportunities = function (body) {
               charts: [
                 {
                   name: "Main notes",
-                  url: "/samplePdf.pdf",
+                  url: "/revcdi2/samplePdf.pdf",
                 },
                 {
                   name: "Lab notes",
-                  url: "/samplePdf.pdf",
+                  url: "/revcdi2/samplePdf.pdf",
                 },
               ],
             },
