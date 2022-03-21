@@ -4,8 +4,8 @@
   "description": "This is a sample Petstore server.  You can find out more about Swagger at [http://swagger.io](http://swagger.io) or on [irc.freenode.net, #swagger](http://swagger.io/irc/). ",
   "main": "index.js",
   "scripts": {
-	"prestart": "npm install",
-	"start": "node index.js"
+    "prestart": "npm install",
+    "start": "node index.js"
   },
   "keywords": [
     "swagger"
@@ -14,6 +14,7 @@
   "private": true,
   "dependencies": {
     "connect": "^3.2.0",
+    "cors": "^2.8.5",
     "js-yaml": "^3.3.0",
     "oas3-tools": "^2.2.3"
   }
