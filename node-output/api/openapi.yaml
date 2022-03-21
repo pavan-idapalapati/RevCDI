@@ -727,27 +727,36 @@ components:
         name: Tag
     opportunityListObj:
       required:
-      - isPeerReviewRequested
+      - chartId
+      - educationalTips
       - opportunities
       - patientInfo
-      - reviewRequestedPhysicianName
       type: object
       properties:
-        isPeerReviewRequested:
-          type: boolean
-          example: true
-        reviewRequestedPhysicianName:
-          type: string
-          example: M. Sing
+        chartId:
+          type: number
+          example: 1
         opportunities:
           type: array
           items:
             $ref: '#/components/schemas/opportunity'
         patientInfo:
           $ref: '#/components/schemas/opportunityListObj_patientInfo'
+        educationalTips:
+          type: array
+          items:
+            $ref: '#/components/schemas/educationalTip'
       example:
-        reviewRequestedPhysicianName: M. Sing
-        isPeerReviewRequested: true
+        educationalTips:
+        - description: Patient appears to be partially responding or appears to have
+            minor complication
+          label: "Educational Tips: E&M - Review of System"
+          isHelpful: false
+        - description: Patient appears to be partially responding or appears to have
+            minor complication
+          label: "Educational Tips: E&M - Review of System"
+          isHelpful: false
+        chartId: 1
         patientInfo:
           firstName: Andrew
           lastName: Lange
@@ -755,25 +764,54 @@ components:
           dateOfService: 24-May-2021
           age: 39
         opportunities:
-        - isEducationalTipAvailable: false
+        - charts:
+          - name: Main notes
+            url: https://example.com/example.pdf
+          - name: Main notes
+            url: https://example.com/example.pdf
+          peerReviewRequest:
+            firstName: M.
+            lastName: Singh
+            imageUrl: imageUrl
+            designation: MD
           comment: Patient appears to be partially responding or appears to have minor
             complication.
-          isHelpfulSelected: false
           category: "Critical Care: Insufficient critical care statement"
-          isNotHelpfulSelected: false
-        - isEducationalTipAvailable: false
+        - charts:
+          - name: Main notes
+            url: https://example.com/example.pdf
+          - name: Main notes
+            url: https://example.com/example.pdf
+          peerReviewRequest:
+            firstName: M.
+            lastName: Singh
+            imageUrl: imageUrl
+            designation: MD
           comment: Patient appears to be partially responding or appears to have minor
             complication.
-          isHelpfulSelected: false
           category: "Critical Care: Insufficient critical care statement"
-          isNotHelpfulSelected: false
+    educationalTip:
+      type: object
+      properties:
+        label:
+          type: string
+          example: "Educational Tips: E&M - Review of System"
+        description:
+          type: string
+          example: Patient appears to be partially responding or appears to have minor
+            complication
+        isHelpful:
+          type: boolean
+          example: false
+      example:
+        description: Patient appears to be partially responding or appears to have
+          minor complication
+        label: "Educational Tips: E&M - Review of System"
+        isHelpful: false
     opportunity:
       required:
       - category
       - comment
-      - isEducationalTipAvailable
-      - isHelpfulSelected
-      - isNotHelpfulSelected
       type: object
       properties:
         category:
@@ -783,22 +821,26 @@ components:
           type: string
           example: Patient appears to be partially responding or appears to have minor
             complication.
-        isEducationalTipAvailable:
-          type: boolean
-          example: false
-        isHelpfulSelected:
-          type: boolean
-          example: false
-        isNotHelpfulSelected:
-          type: boolean
-          example: false
+        charts:
+          type: array
+          items:
+            $ref: '#/components/schemas/opportunity_charts'
+        peerReviewRequest:
+          $ref: '#/components/schemas/opportunity_peerReviewRequest'
       example:
-        isEducationalTipAvailable: false
+        charts:
+        - name: Main notes
+          url: https://example.com/example.pdf
+        - name: Main notes
+          url: https://example.com/example.pdf
+        peerReviewRequest:
+          firstName: M.
+          lastName: Singh
+          imageUrl: imageUrl
+          designation: MD
         comment: Patient appears to be partially responding or appears to have minor
           complication.
-        isHelpfulSelected: false
         category: "Critical Care: Insufficient critical care statement"
-        isNotHelpfulSelected: false
     Pet:
       required:
       - name
@@ -875,8 +917,16 @@ components:
             $ref: '#/components/schemas/opportunityListObj'
       example:
         data:
-        - reviewRequestedPhysicianName: M. Sing
-          isPeerReviewRequested: true
+        - educationalTips:
+          - description: Patient appears to be partially responding or appears to
+              have minor complication
+            label: "Educational Tips: E&M - Review of System"
+            isHelpful: false
+          - description: Patient appears to be partially responding or appears to
+              have minor complication
+            label: "Educational Tips: E&M - Review of System"
+            isHelpful: false
+          chartId: 1
           patientInfo:
             firstName: Andrew
             lastName: Lange
@@ -884,20 +934,42 @@ components:
             dateOfService: 24-May-2021
             age: 39
           opportunities:
-          - isEducationalTipAvailable: false
+          - charts:
+            - name: Main notes
+              url: https://example.com/example.pdf
+            - name: Main notes
+              url: https://example.com/example.pdf
+            peerReviewRequest:
+              firstName: M.
+              lastName: Singh
+              imageUrl: imageUrl
+              designation: MD
             comment: Patient appears to be partially responding or appears to have
               minor complication.
-            isHelpfulSelected: false
             category: "Critical Care: Insufficient critical care statement"
-            isNotHelpfulSelected: false
-          - isEducationalTipAvailable: false
+          - charts:
+            - name: Main notes
+              url: https://example.com/example.pdf
+            - name: Main notes
+              url: https://example.com/example.pdf
+            peerReviewRequest:
+              firstName: M.
+              lastName: Singh
+              imageUrl: imageUrl
+              designation: MD
             comment: Patient appears to be partially responding or appears to have
               minor complication.
-            isHelpfulSelected: false
             category: "Critical Care: Insufficient critical care statement"
-            isNotHelpfulSelected: false
-        - reviewRequestedPhysicianName: M. Sing
-          isPeerReviewRequested: true
+        - educationalTips:
+          - description: Patient appears to be partially responding or appears to
+              have minor complication
+            label: "Educational Tips: E&M - Review of System"
+            isHelpful: false
+          - description: Patient appears to be partially responding or appears to
+              have minor complication
+            label: "Educational Tips: E&M - Review of System"
+            isHelpful: false
+          chartId: 1
           patientInfo:
             firstName: Andrew
             lastName: Lange
@@ -905,18 +977,32 @@ components:
             dateOfService: 24-May-2021
             age: 39
           opportunities:
-          - isEducationalTipAvailable: false
+          - charts:
+            - name: Main notes
+              url: https://example.com/example.pdf
+            - name: Main notes
+              url: https://example.com/example.pdf
+            peerReviewRequest:
+              firstName: M.
+              lastName: Singh
+              imageUrl: imageUrl
+              designation: MD
             comment: Patient appears to be partially responding or appears to have
               minor complication.
-            isHelpfulSelected: false
             category: "Critical Care: Insufficient critical care statement"
-            isNotHelpfulSelected: false
-          - isEducationalTipAvailable: false
+          - charts:
+            - name: Main notes
+              url: https://example.com/example.pdf
+            - name: Main notes
+              url: https://example.com/example.pdf
+            peerReviewRequest:
+              firstName: M.
+              lastName: Singh
+              imageUrl: imageUrl
+              designation: MD
             comment: Patient appears to be partially responding or appears to have
               minor complication.
-            isHelpfulSelected: false
             category: "Critical Care: Insufficient critical care statement"
-            isNotHelpfulSelected: false
     inline_response_200_1:
       type: object
       properties:
@@ -1005,6 +1091,37 @@ components:
         gender: M
         dateOfService: 24-May-2021
         age: 39
+    opportunity_charts:
+      type: object
+      properties:
+        name:
+          type: string
+          example: Main notes
+        url:
+          type: string
+          example: https://example.com/example.pdf
+      example:
+        name: Main notes
+        url: https://example.com/example.pdf
+    opportunity_peerReviewRequest:
+      type: object
+      properties:
+        firstName:
+          type: string
+          example: M.
+        lastName:
+          type: string
+          example: Singh
+        imageUrl:
+          type: string
+        designation:
+          type: string
+          example: MD
+      example:
+        firstName: M.
+        lastName: Singh
+        imageUrl: imageUrl
+        designation: MD
     inline_response_200_1_cdiSpecialist:
       type: object
       properties:

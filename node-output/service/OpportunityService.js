@@ -44,8 +44,16 @@ exports.findAllOpportunities = function(body) {
     var examples = {};
     examples['application/json'] = {
   "data" : [ {
-    "reviewRequestedPhysicianName" : "M. Sing",
-    "isPeerReviewRequested" : true,
+    "educationalTips" : [ {
+      "description" : "Patient appears to be partially responding or appears to have minor complication",
+      "label" : "Educational Tips: E&M - Review of System",
+      "isHelpful" : false
+    }, {
+      "description" : "Patient appears to be partially responding or appears to have minor complication",
+      "label" : "Educational Tips: E&M - Review of System",
+      "isHelpful" : false
+    } ],
+    "chartId" : 1,
     "patientInfo" : {
       "firstName" : "Andrew",
       "lastName" : "Lange",
@@ -54,21 +62,49 @@ exports.findAllOpportunities = function(body) {
       "age" : 39
     },
     "opportunities" : [ {
-      "isEducationalTipAvailable" : false,
+      "charts" : [ {
+        "name" : "Main notes",
+        "url" : "https://example.com/example.pdf"
+      }, {
+        "name" : "Main notes",
+        "url" : "https://example.com/example.pdf"
+      } ],
+      "peerReviewRequest" : {
+        "firstName" : "M.",
+        "lastName" : "Singh",
+        "imageUrl" : "imageUrl",
+        "designation" : "MD"
+      },
       "comment" : "Patient appears to be partially responding or appears to have minor complication.",
-      "isHelpfulSelected" : false,
-      "category" : "Critical Care: Insufficient critical care statement",
-      "isNotHelpfulSelected" : false
+      "category" : "Critical Care: Insufficient critical care statement"
     }, {
-      "isEducationalTipAvailable" : false,
+      "charts" : [ {
+        "name" : "Main notes",
+        "url" : "https://example.com/example.pdf"
+      }, {
+        "name" : "Main notes",
+        "url" : "https://example.com/example.pdf"
+      } ],
+      "peerReviewRequest" : {
+        "firstName" : "M.",
+        "lastName" : "Singh",
+        "imageUrl" : "imageUrl",
+        "designation" : "MD"
+      },
       "comment" : "Patient appears to be partially responding or appears to have minor complication.",
-      "isHelpfulSelected" : false,
-      "category" : "Critical Care: Insufficient critical care statement",
-      "isNotHelpfulSelected" : false
+      "category" : "Critical Care: Insufficient critical care statement"
     } ]
   }, {
-    "reviewRequestedPhysicianName" : "M. Sing",
-    "isPeerReviewRequested" : true,
+    "educationalTips" : [ {
+      "description" : "Patient appears to be partially responding or appears to have minor complication",
+      "label" : "Educational Tips: E&M - Review of System",
+      "isHelpful" : false
+    }, {
+      "description" : "Patient appears to be partially responding or appears to have minor complication",
+      "label" : "Educational Tips: E&M - Review of System",
+      "isHelpful" : false
+    } ],
+    "chartId" : 1,
     "patientInfo" : {
       "firstName" : "Andrew",
       "lastName" : "Lange",
@@ -77,17 +113,37 @@ exports.findAllOpportunities = function(body) {
       "age" : 39
     },
     "opportunities" : [ {
-      "isEducationalTipAvailable" : false,
+      "charts" : [ {
+        "name" : "Main notes",
+        "url" : "https://example.com/example.pdf"
+      }, {
+        "name" : "Main notes",
+        "url" : "https://example.com/example.pdf"
+      } ],
+      "peerReviewRequest" : {
+        "firstName" : "M.",
+        "lastName" : "Singh",
+        "imageUrl" : "imageUrl",
+        "designation" : "MD"
+      },
       "comment" : "Patient appears to be partially responding or appears to have minor complication.",
-      "isHelpfulSelected" : false,
-      "category" : "Critical Care: Insufficient critical care statement",
-      "isNotHelpfulSelected" : false
+      "category" : "Critical Care: Insufficient critical care statement"
     }, {
-      "isEducationalTipAvailable" : false,
+      "charts" : [ {
+        "name" : "Main notes",
+        "url" : "https://example.com/example.pdf"
+      }, {
+        "name" : "Main notes",
+        "url" : "https://example.com/example.pdf"
+      } ],
+      "peerReviewRequest" : {
+        "firstName" : "M.",
+        "lastName" : "Singh",
+        "imageUrl" : "imageUrl",
+        "designation" : "MD"
+      },
       "comment" : "Patient appears to be partially responding or appears to have minor complication.",
-      "isHelpfulSelected" : false,
-      "category" : "Critical Care: Insufficient critical care statement",
-      "isNotHelpfulSelected" : false
+      "category" : "Critical Care: Insufficient critical care statement"
     } ]
   } ]
 };
