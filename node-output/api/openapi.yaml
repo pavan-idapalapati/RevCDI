@@ -32,11 +32,13 @@ tags:
     url: http://swagger.io
 paths:
   /opportunities:
-    get:
+    post:
       tags:
       - opportunity
       summary: Find all opportunities
       operationId: findAllOpportunities
+      requestBody:
+        $ref: '#/components/requestBodies/opportunitiesRequestBody'
       responses:
         "200":
           description: successful Operation
@@ -45,6 +47,50 @@ paths:
               schema:
                 $ref: '#/components/schemas/inline_response_200'
       x-swagger-router-controller: Opportunity
+  /userDetails:
+    get:
+      tags:
+      - User details
+      summary: Get user details and unread responses
+      operationId: userDetailsGET
+      responses:
+        "200":
+          description: Successful Operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_200_1'
+      x-swagger-router-controller: UserDetails
+  /dashboardMetaData:
+    get:
+      tags:
+      - opportunity
+      summary: opportunities Page Meta data
+      operationId: dashboardMetaDataGET
+      responses:
+        "200":
+          description: successful Operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_200_2'
+      x-swagger-router-controller: Opportunity
+  /groups:
+    post:
+      tags:
+      - groups
+      summary: Find all groups
+      operationId: Find all Groups
+      requestBody:
+        $ref: '#/components/requestBodies/opportunitiesRequestBody'
+      responses:
+        "200":
+          description: successful Operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_200_3'
+      x-swagger-router-controller: Groups
   /pet:
     put:
       tags:
@@ -871,6 +917,62 @@ components:
             isHelpfulSelected: false
             category: "Critical Care: Insufficient critical care statement"
             isNotHelpfulSelected: false
+    inline_response_200_1:
+      type: object
+      properties:
+        unReadResponses:
+          type: array
+          items:
+            $ref: '#/components/schemas/inline_response_200_1_unReadResponses'
+        userDetails:
+          $ref: '#/components/schemas/inline_response_200_1_userDetails'
+      example:
+        unReadResponses:
+        - cdiSpecialist:
+            firstName: Puru
+            lastName: vanteru
+          message: "Yes, we run all out opportunities through the..."
+          timestamp: 10/03/2022 17:35:44
+        - cdiSpecialist:
+            firstName: Puru
+            lastName: vanteru
+          message: "Yes, we run all out opportunities through the..."
+          timestamp: 10/03/2022 17:35:44
+        userDetails:
+          firstName: A.
+          lastName: Osman
+          imageUrl: /ProfileImage.svg
+          specialization: MD
+          id: 1
+    inline_response_200_2:
+      type: object
+      properties:
+        data:
+          $ref: '#/components/schemas/inline_response_200_2_data'
+      example:
+        data:
+          potentialRevenue:
+            wRUV: "14.9"
+            value: $738
+          statusCounts:
+          - statusId: 1
+            count: 10
+          - statusId: 1
+            count: 10
+    inline_response_200_3:
+      type: object
+      properties:
+        data:
+          type: array
+          description: all Group objects
+          items:
+            $ref: '#/components/schemas/inline_response_200_3_data'
+      example:
+        data:
+        - description: Critical Care
+          id: 1
+        - description: Critical Care
+          id: 1
     pet_petId_body:
       type: object
       properties:
@@ -903,7 +1005,184 @@ components:
         gender: M
         dateOfService: 24-May-2021
         age: 39
+    inline_response_200_1_cdiSpecialist:
+      type: object
+      properties:
+        firstName:
+          type: string
+          example: Puru
+        lastName:
+          type: string
+          example: vanteru
+      example:
+        firstName: Puru
+        lastName: vanteru
+    inline_response_200_1_unReadResponses:
+      type: object
+      properties:
+        message:
+          type: string
+          example: "Yes, we run all out opportunities through the..."
+        timestamp:
+          type: string
+          example: 10/03/2022 17:35:44
+        cdiSpecialist:
+          $ref: '#/components/schemas/inline_response_200_1_cdiSpecialist'
+      example:
+        cdiSpecialist:
+          firstName: Puru
+          lastName: vanteru
+        message: "Yes, we run all out opportunities through the..."
+        timestamp: 10/03/2022 17:35:44
+    inline_response_200_1_userDetails:
+      type: object
+      properties:
+        firstName:
+          type: string
+          example: A.
+        id:
+          type: number
+          example: 1
+        lastName:
+          type: string
+          example: Osman
+        imageUrl:
+          type: string
+          description: Public Url for Profile image
+          example: /ProfileImage.svg
+        specialization:
+          type: string
+          example: MD
+      example:
+        firstName: A.
+        lastName: Osman
+        imageUrl: /ProfileImage.svg
+        specialization: MD
+        id: 1
+    inline_response_200_2_data_potentialRevenue:
+      type: object
+      properties:
+        value:
+          type: string
+          example: $738
+        wRUV:
+          type: string
+          example: "14.9"
+      example:
+        wRUV: "14.9"
+        value: $738
+    inline_response_200_2_data_statusCounts:
+      type: object
+      properties:
+        statusId:
+          type: number
+          example: 1
+        count:
+          type: number
+          example: 10
+      example:
+        statusId: 1
+        count: 10
+    inline_response_200_2_data:
+      type: object
+      properties:
+        potentialRevenue:
+          $ref: '#/components/schemas/inline_response_200_2_data_potentialRevenue'
+        statusCounts:
+          type: array
+          items:
+            $ref: '#/components/schemas/inline_response_200_2_data_statusCounts'
+      example:
+        potentialRevenue:
+          wRUV: "14.9"
+          value: $738
+        statusCounts:
+        - statusId: 1
+          count: 10
+        - statusId: 1
+          count: 10
+    inline_response_200_3_data:
+      type: object
+      properties:
+        id:
+          type: number
+          example: 1
+        description:
+          type: string
+          example: Critical Care
+      example:
+        description: Critical Care
+        id: 1
   requestBodies:
+    opportunitiesRequestBody:
+      content:
+        application/json:
+          schema:
+            required:
+            - name
+            - photoUrls
+            type: object
+            properties:
+              group:
+                type: string
+                example: category
+              groupId:
+                type: number
+                example: 1
+              page:
+                type: object
+                properties:
+                  currentPage:
+                    type: number
+                    example: 1
+                  recordsPerPage:
+                    type: number
+                    example: 10
+              criteria:
+                type: object
+                properties:
+                  status:
+                    type: array
+                    items:
+                      type: number
+                  sort:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        column:
+                          type: string
+                          example: DOS
+                        order:
+                          type: string
+                          enum:
+                          - ASC
+                          - DESC
+                  filters:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        field:
+                          type: string
+                          example: DOS
+                        fieldType:
+                          type: string
+                          enum:
+                          - Date
+                          - String
+                        operator:
+                          type: string
+                          enum:
+                          - =
+                          - <
+                          - <=
+                          - '>='
+                        value:
+                          type: string
+                          description: if fieldType is string then value should be
+                            2 dates with coma separated value
+                          example: "01-02-2022,01-02-2022"
     Pet:
       description: Pet object that needs to be added to the store
       content:
