@@ -7,7 +7,7 @@
  * body Object  (optional)
  * returns inline_response_200_3
  **/
-exports.find all Groups = function(body) {
+exports.findAllGroups = function(body) {
   return new Promise(function(resolve, reject) {
     var examples = {};
     examples['application/json'] = {

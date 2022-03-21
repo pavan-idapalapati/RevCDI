@@ -3,8 +3,8 @@
 var utils = require('../utils/writer.js');
 var Groups = require('../service/GroupsService');
 
-module.exports.find all Groups = function find all Groups (req, res, next, body) {
-  Groups.find all Groups(body)
+module.exports.findAllGroups = function findAllGroups (req, res, next, body) {
+  Groups.findAllGroups(body)
     .then(function (response) {
       utils.writeJson(res, response);
     })

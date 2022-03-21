@@ -66,7 +66,7 @@ paths:
       tags:
       - opportunity
       summary: opportunities Page Meta data
-      operationId: dashboardMetaDataGET
+      operationId: dashboardMetaData
       responses:
         "200":
           description: successful Operation
@@ -80,7 +80,7 @@ paths:
       tags:
       - groups
       summary: Find all groups
-      operationId: Find all Groups
+      operationId: FindAllGroups
       requestBody:
         $ref: '#/components/requestBodies/opportunitiesRequestBody'
       responses:

@@ -6,7 +6,7 @@
  *
  * returns inline_response_200_2
  **/
-exports.dashboardMetaDataGET = function() {
+exports.dashboardMetaData = function() {
   return new Promise(function(resolve, reject) {
     var examples = {};
     examples['application/json'] = {
