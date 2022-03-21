@@ -31,7 +31,7 @@ exports.userDetailsGET = function () {
         userDetails: {
           firstName: "A.",
           lastName: "Osman",
-          imageUrl: "revcdi2/ProfileImage.svg",
+          imageUrl: "/revcdi2/ProfileImage.svg",
           specialization: "MD",
           id: 1,
         },
