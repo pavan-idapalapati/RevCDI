@@ -80,7 +80,7 @@ paths:
       tags:
       - groups
       summary: Find all groups
-      operationId: FindAllGroups
+      operationId: findAllGroups
       requestBody:
         $ref: '#/components/requestBodies/opportunitiesRequestBody'
       responses:
