@@ -1,8 +1,7 @@
 openapi: 3.0.0
 info:
   title: Swagger Petstore
-  description:
-    "This is a sample Petstore server.  You can find\nout more about Swagger\
+  description: "This is a sample Petstore server.  You can find\nout more about Swagger\
     \ at\n[http://swagger.io](http://swagger.io) or on\n[irc.freenode.net, #swagger](http://swagger.io/irc/).\n"
   termsOfService: http://swagger.io/terms/
   contact:
@@ -15,43 +14,43 @@ externalDocs:
   description: Find out more about Swagger
   url: http://swagger.io
 servers:
-  - url: http://localhost:8080
-    description: SwaggerHub API Auto Mocking
-  - url: https://petstore.swagger.io/v2
+- url: https://virtserver.swaggerhub.com/pavan-idapalapati/RevCDI/1.0.0
+  description: SwaggerHub API Auto Mocking
+- url: https://petstore.swagger.io/v2
 tags:
-  - name: pet
-    description: Everything about your Pets
-    externalDocs:
-      description: Find out more
-      url: http://swagger.io
-  - name: store
-    description: Access to Petstore orders
-  - name: user
-    description: Operations about user
-    externalDocs:
-      description: Find out more about our store
-      url: http://swagger.io
+- name: pet
+  description: Everything about your Pets
+  externalDocs:
+    description: Find out more
+    url: http://swagger.io
+- name: store
+  description: Access to Petstore orders
+- name: user
+  description: Operations about user
+  externalDocs:
+    description: Find out more about our store
+    url: http://swagger.io
 paths:
   /opportunities:
     post:
       tags:
-        - opportunity
+      - opportunity
       summary: Find all opportunities
       operationId: findAllOpportunities
       requestBody:
-        $ref: "#/components/requestBodies/opportunitiesRequestBody"
+        $ref: '#/components/requestBodies/opportunitiesRequestBody'
       responses:
         "200":
           description: successful Operation
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/inline_response_200"
+                $ref: '#/components/schemas/inline_response_200'
       x-swagger-router-controller: Opportunity
   /userDetails:
     get:
       tags:
-        - User details
+      - User details
       summary: Get user details and unread responses
       operationId: userDetailsGET
       responses:
@@ -60,12 +59,12 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/inline_response_200_1"
+                $ref: '#/components/schemas/inline_response_200_1'
       x-swagger-router-controller: UserDetails
   /dashboardMetaData:
     get:
       tags:
-        - opportunity
+      - opportunity
       summary: opportunities Page Meta data
       operationId: dashboardMetaDataGET
       responses:
@@ -74,32 +73,32 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/inline_response_200_2"
+                $ref: '#/components/schemas/inline_response_200_2'
       x-swagger-router-controller: Opportunity
   /groups:
     post:
       tags:
-        - groups
+      - groups
       summary: Find all groups
       operationId: Find all Groups
       requestBody:
-        $ref: "#/components/requestBodies/opportunitiesRequestBody"
+        $ref: '#/components/requestBodies/opportunitiesRequestBody'
       responses:
         "200":
           description: successful Operation
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/inline_response_200_3"
+                $ref: '#/components/schemas/inline_response_200_3'
       x-swagger-router-controller: Groups
   /pet:
     put:
       tags:
-        - pet
+      - pet
       summary: Update an existing pet
       operationId: updatePet
       requestBody:
-        $ref: "#/components/requestBodies/Pet"
+        $ref: '#/components/requestBodies/Pet'
       responses:
         "400":
           description: Invalid ID supplied
@@ -108,48 +107,48 @@ paths:
         "405":
           description: Validation exception
       security:
-        - petstore_auth:
-            - write:pets
-            - read:pets
+      - petstore_auth:
+        - write:pets
+        - read:pets
       x-swagger-router-controller: Pet
     post:
       tags:
-        - pet
+      - pet
       summary: Add a new pet to the store
       operationId: addPet
       requestBody:
-        $ref: "#/components/requestBodies/Pet"
+        $ref: '#/components/requestBodies/Pet'
       responses:
         "405":
           description: Invalid input
       security:
-        - petstore_auth:
-            - write:pets
-            - read:pets
+      - petstore_auth:
+        - write:pets
+        - read:pets
       x-swagger-router-controller: Pet
   /pet/findByStatus:
     get:
       tags:
-        - pet
+      - pet
       summary: Finds Pets by status
       description: Multiple status values can be provided with comma separated strings
       operationId: findPetsByStatus
       parameters:
-        - name: status
-          in: query
-          description: Status values that need to be considered for filter
-          required: true
-          style: form
-          explode: true
-          schema:
-            type: array
-            items:
-              type: string
-              enum:
-                - available
-                - pending
-                - sold
-              default: available
+      - name: status
+        in: query
+        description: Status values that need to be considered for filter
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: array
+          items:
+            type: string
+            enum:
+            - available
+            - pending
+            - sold
+            default: available
       responses:
         "200":
           description: successful operation
@@ -158,40 +157,39 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: "#/components/schemas/Pet"
+                  $ref: '#/components/schemas/Pet'
                 x-content-type: application/json
             application/xml:
               schema:
                 type: array
                 items:
-                  $ref: "#/components/schemas/Pet"
+                  $ref: '#/components/schemas/Pet'
         "400":
           description: Invalid status value
       security:
-        - petstore_auth:
-            - write:pets
-            - read:pets
+      - petstore_auth:
+        - write:pets
+        - read:pets
       x-swagger-router-controller: Pet
   /pet/findByTags:
     get:
       tags:
-        - pet
+      - pet
       summary: Finds Pets by tags
-      description:
-        "Muliple tags can be provided with comma separated strings. Use\\\
+      description: "Muliple tags can be provided with comma separated strings. Use\\\
         \ \\ tag1, tag2, tag3 for testing."
       operationId: findPetsByTags
       parameters:
-        - name: tags
-          in: query
-          description: Tags to filter by
-          required: true
-          style: form
-          explode: true
-          schema:
-            type: array
-            items:
-              type: string
+      - name: tags
+        in: query
+        description: Tags to filter by
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: array
+          items:
+            type: string
       responses:
         "200":
           description: successful operation
@@ -200,131 +198,131 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: "#/components/schemas/Pet"
+                  $ref: '#/components/schemas/Pet'
                 x-content-type: application/json
             application/xml:
               schema:
                 type: array
                 items:
-                  $ref: "#/components/schemas/Pet"
+                  $ref: '#/components/schemas/Pet'
         "400":
           description: Invalid tag value
       deprecated: true
       security:
-        - petstore_auth:
-            - write:pets
-            - read:pets
+      - petstore_auth:
+        - write:pets
+        - read:pets
       x-swagger-router-controller: Pet
   /pet/{petId}:
     get:
       tags:
-        - pet
+      - pet
       summary: Find pet by ID
       description: Returns a single pet
       operationId: getPetById
       parameters:
-        - name: petId
-          in: path
-          description: ID of pet to return
-          required: true
-          style: simple
-          explode: false
-          schema:
-            type: integer
-            format: int64
+      - name: petId
+        in: path
+        description: ID of pet to return
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+          format: int64
       responses:
         "200":
           description: successful operation
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Pet"
+                $ref: '#/components/schemas/Pet'
             application/xml:
               schema:
-                $ref: "#/components/schemas/Pet"
+                $ref: '#/components/schemas/Pet'
         "400":
           description: Invalid ID supplied
         "404":
           description: Pet not found
       security:
-        - api_key: []
+      - api_key: []
       x-swagger-router-controller: Pet
     post:
       tags:
-        - pet
+      - pet
       summary: Updates a pet in the store with form data
       operationId: updatePetWithForm
       parameters:
-        - name: petId
-          in: path
-          description: ID of pet that needs to be updated
-          required: true
-          style: simple
-          explode: false
-          schema:
-            type: integer
-            format: int64
+      - name: petId
+        in: path
+        description: ID of pet that needs to be updated
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+          format: int64
       requestBody:
         content:
           application/x-www-form-urlencoded:
             schema:
-              $ref: "#/components/schemas/pet_petId_body"
+              $ref: '#/components/schemas/pet_petId_body'
       responses:
         "405":
           description: Invalid input
       security:
-        - petstore_auth:
-            - write:pets
-            - read:pets
+      - petstore_auth:
+        - write:pets
+        - read:pets
       x-swagger-router-controller: Pet
     delete:
       tags:
-        - pet
+      - pet
       summary: Deletes a pet
       operationId: deletePet
       parameters:
-        - name: api_key
-          in: header
-          required: false
-          style: simple
-          explode: false
-          schema:
-            type: string
-        - name: petId
-          in: path
-          description: Pet id to delete
-          required: true
-          style: simple
-          explode: false
-          schema:
-            type: integer
-            format: int64
+      - name: api_key
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+      - name: petId
+        in: path
+        description: Pet id to delete
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+          format: int64
       responses:
         "400":
           description: Invalid ID supplied
         "404":
           description: Pet not found
       security:
-        - petstore_auth:
-            - write:pets
-            - read:pets
+      - petstore_auth:
+        - write:pets
+        - read:pets
       x-swagger-router-controller: Pet
   /pet/{petId}/uploadImage:
     post:
       tags:
-        - pet
+      - pet
       summary: uploads an image
       operationId: uploadFile
       parameters:
-        - name: petId
-          in: path
-          description: ID of pet to update
-          required: true
-          style: simple
-          explode: false
-          schema:
-            type: integer
-            format: int64
+      - name: petId
+        in: path
+        description: ID of pet to update
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+          format: int64
       requestBody:
         content:
           application/octet-stream:
@@ -337,16 +335,16 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ApiResponse"
+                $ref: '#/components/schemas/ApiResponse'
       security:
-        - petstore_auth:
-            - write:pets
-            - read:pets
+      - petstore_auth:
+        - write:pets
+        - read:pets
       x-swagger-router-controller: Pet
   /store/inventory:
     get:
       tags:
-        - store
+      - store
       summary: Returns pet inventories by status
       description: Returns a map of status codes to quantities
       operationId: getInventory
@@ -362,12 +360,12 @@ paths:
                   format: int32
                 x-content-type: application/json
       security:
-        - api_key: []
+      - api_key: []
       x-swagger-router-controller: Store
   /store/order:
     post:
       tags:
-        - store
+      - store
       summary: Place an order for a pet
       operationId: placeOrder
       requestBody:
@@ -375,7 +373,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/Order"
+              $ref: '#/components/schemas/Order'
         required: true
       responses:
         "200":
@@ -383,44 +381,43 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Order"
+                $ref: '#/components/schemas/Order'
             application/xml:
               schema:
-                $ref: "#/components/schemas/Order"
+                $ref: '#/components/schemas/Order'
         "400":
           description: Invalid Order
       x-swagger-router-controller: Store
   /store/order/{orderId}:
     get:
       tags:
-        - store
+      - store
       summary: Find purchase order by ID
-      description:
-        For valid response try integer IDs with value >= 1 and <= 10.\
+      description: For valid response try integer IDs with value >= 1 and <= 10.\
         \ Other values will generated exceptions
       operationId: getOrderById
       parameters:
-        - name: orderId
-          in: path
-          description: ID of pet that needs to be fetched
-          required: true
-          style: simple
-          explode: false
-          schema:
-            maximum: 10
-            minimum: 1
-            type: integer
-            format: int64
+      - name: orderId
+        in: path
+        description: ID of pet that needs to be fetched
+        required: true
+        style: simple
+        explode: false
+        schema:
+          maximum: 10
+          minimum: 1
+          type: integer
+          format: int64
       responses:
         "200":
           description: successful operation
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Order"
+                $ref: '#/components/schemas/Order'
             application/xml:
               schema:
-                $ref: "#/components/schemas/Order"
+                $ref: '#/components/schemas/Order'
         "400":
           description: Invalid ID supplied
         "404":
@@ -428,23 +425,22 @@ paths:
       x-swagger-router-controller: Store
     delete:
       tags:
-        - store
+      - store
       summary: Delete purchase order by ID
-      description:
-        For valid response try integer IDs with positive integer value.\
+      description: For valid response try integer IDs with positive integer value.\
         \ Negative or non-integer values will generate API errors
       operationId: deleteOrder
       parameters:
-        - name: orderId
-          in: path
-          description: ID of the order that needs to be deleted
-          required: true
-          style: simple
-          explode: false
-          schema:
-            minimum: 1
-            type: integer
-            format: int64
+      - name: orderId
+        in: path
+        description: ID of the order that needs to be deleted
+        required: true
+        style: simple
+        explode: false
+        schema:
+          minimum: 1
+          type: integer
+          format: int64
       responses:
         "400":
           description: Invalid ID supplied
@@ -454,7 +450,7 @@ paths:
   /user:
     post:
       tags:
-        - user
+      - user
       summary: Create user
       description: This can only be done by the logged in user.
       operationId: createUser
@@ -463,7 +459,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/User"
+              $ref: '#/components/schemas/User'
         required: true
       responses:
         default:
@@ -472,11 +468,11 @@ paths:
   /user/createWithArray:
     post:
       tags:
-        - user
+      - user
       summary: Creates list of users with given input array
       operationId: createUsersWithArrayInput
       requestBody:
-        $ref: "#/components/requestBodies/UserArray"
+        $ref: '#/components/requestBodies/UserArray'
       responses:
         default:
           description: successful operation
@@ -484,11 +480,11 @@ paths:
   /user/createWithList:
     post:
       tags:
-        - user
+      - user
       summary: Creates list of users with given input array
       operationId: createUsersWithListInput
       requestBody:
-        $ref: "#/components/requestBodies/UserArray"
+        $ref: '#/components/requestBodies/UserArray'
       responses:
         default:
           description: successful operation
@@ -496,26 +492,26 @@ paths:
   /user/login:
     get:
       tags:
-        - user
+      - user
       summary: Logs user into the system
       operationId: loginUser
       parameters:
-        - name: username
-          in: query
-          description: The user name for login
-          required: true
-          style: form
-          explode: true
-          schema:
-            type: string
-        - name: password
-          in: query
-          description: The password for login in clear text
-          required: true
-          style: form
-          explode: true
-          schema:
-            type: string
+      - name: username
+        in: query
+        description: The user name for login
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: string
+      - name: password
+        in: query
+        description: The password for login in clear text
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: string
       responses:
         "200":
           description: successful operation
@@ -548,7 +544,7 @@ paths:
   /user/logout:
     get:
       tags:
-        - user
+      - user
       summary: Logs out current logged in user session
       operationId: logoutUser
       responses:
@@ -558,28 +554,28 @@ paths:
   /user/{username}:
     get:
       tags:
-        - user
+      - user
       summary: Get user by user name
       operationId: getUserByName
       parameters:
-        - name: username
-          in: path
-          description: The name that needs to be fetched. Use user1 for testing.
-          required: true
-          style: simple
-          explode: false
-          schema:
-            type: string
+      - name: username
+        in: path
+        description: The name that needs to be fetched. Use user1 for testing.
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
       responses:
         "200":
           description: successful operation
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/User"
+                $ref: '#/components/schemas/User'
             application/xml:
               schema:
-                $ref: "#/components/schemas/User"
+                $ref: '#/components/schemas/User'
         "400":
           description: Invalid username supplied
         "404":
@@ -587,25 +583,25 @@ paths:
       x-swagger-router-controller: User
     put:
       tags:
-        - user
+      - user
       summary: Updated user
       description: This can only be done by the logged in user.
       operationId: updateUser
       parameters:
-        - name: username
-          in: path
-          description: name that need to be updated
-          required: true
-          style: simple
-          explode: false
-          schema:
-            type: string
+      - name: username
+        in: path
+        description: name that need to be updated
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
       requestBody:
         description: Updated user object
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/User"
+              $ref: '#/components/schemas/User'
         required: true
       responses:
         "400":
@@ -615,19 +611,19 @@ paths:
       x-swagger-router-controller: User
     delete:
       tags:
-        - user
+      - user
       summary: Delete user
       description: This can only be done by the logged in user.
       operationId: deleteUser
       parameters:
-        - name: username
-          in: path
-          description: The name that needs to be deleted
-          required: true
-          style: simple
-          explode: false
-          schema:
-            type: string
+      - name: username
+        in: path
+        description: The name that needs to be deleted
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
       responses:
         "400":
           description: Invalid username supplied
@@ -655,9 +651,9 @@ components:
           type: string
           description: Order Status
           enum:
-            - placed
-            - approved
-            - delivered
+          - placed
+          - approved
+          - delivered
         complete:
           type: boolean
           default: false
@@ -731,27 +727,36 @@ components:
         name: Tag
     opportunityListObj:
       required:
-        - isPeerReviewRequested
-        - opportunities
-        - patientInfo
-        - reviewRequestedPhysicianName
+      - chartId
+      - educationalTips
+      - opportunities
+      - patientInfo
       type: object
       properties:
-        isPeerReviewRequested:
-          type: boolean
-          example: true
-        reviewRequestedPhysicianName:
-          type: string
-          example: M. Sing
+        chartId:
+          type: number
+          example: 1
         opportunities:
           type: array
           items:
-            $ref: "#/components/schemas/opportunity"
+            $ref: '#/components/schemas/opportunity'
         patientInfo:
-          $ref: "#/components/schemas/opportunityListObj_patientInfo"
+          $ref: '#/components/schemas/opportunityListObj_patientInfo'
+        educationalTips:
+          type: array
+          items:
+            $ref: '#/components/schemas/educationalTip'
       example:
-        reviewRequestedPhysicianName: M. Sing
-        isPeerReviewRequested: true
+        educationalTips:
+        - description: Patient appears to be partially responding or appears to have
+            minor complication
+          label: "Educational Tips: E&M - Review of System"
+          isHelpful: false
+        - description: Patient appears to be partially responding or appears to have
+            minor complication
+          label: "Educational Tips: E&M - Review of System"
+          isHelpful: false
+        chartId: 1
         patientInfo:
           firstName: Andrew
           lastName: Lange
@@ -759,27 +764,54 @@ components:
           dateOfService: 24-May-2021
           age: 39
         opportunities:
-          - isEducationalTipAvailable: false
-            comment:
-              Patient appears to be partially responding or appears to have minor
-              complication.
-            isHelpfulSelected: false
-            category: "Critical Care: Insufficient critical care statement"
-            isNotHelpfulSelected: false
-          - isEducationalTipAvailable: false
-            comment:
-              Patient appears to be partially responding or appears to have minor
-              complication.
-            isHelpfulSelected: false
-            category: "Critical Care: Insufficient critical care statement"
-            isNotHelpfulSelected: false
+        - charts:
+          - name: Main notes
+            url: https://example.com/example.pdf
+          - name: Main notes
+            url: https://example.com/example.pdf
+          peerReviewRequest:
+            firstName: M.
+            lastName: Singh
+            imageUrl: imageUrl
+            designation: MD
+          comment: Patient appears to be partially responding or appears to have minor
+            complication.
+          category: "Critical Care: Insufficient critical care statement"
+        - charts:
+          - name: Main notes
+            url: https://example.com/example.pdf
+          - name: Main notes
+            url: https://example.com/example.pdf
+          peerReviewRequest:
+            firstName: M.
+            lastName: Singh
+            imageUrl: imageUrl
+            designation: MD
+          comment: Patient appears to be partially responding or appears to have minor
+            complication.
+          category: "Critical Care: Insufficient critical care statement"
+    educationalTip:
+      type: object
+      properties:
+        label:
+          type: string
+          example: "Educational Tips: E&M - Review of System"
+        description:
+          type: string
+          example: Patient appears to be partially responding or appears to have minor
+            complication
+        isHelpful:
+          type: boolean
+          example: false
+      example:
+        description: Patient appears to be partially responding or appears to have
+          minor complication
+        label: "Educational Tips: E&M - Review of System"
+        isHelpful: false
     opportunity:
       required:
-        - category
-        - comment
-        - isEducationalTipAvailable
-        - isHelpfulSelected
-        - isNotHelpfulSelected
+      - category
+      - comment
       type: object
       properties:
         category:
@@ -787,37 +819,39 @@ components:
           example: "Critical Care: Insufficient critical care statement"
         comment:
           type: string
-          example:
-            Patient appears to be partially responding or appears to have minor
+          example: Patient appears to be partially responding or appears to have minor
             complication.
-        isEducationalTipAvailable:
-          type: boolean
-          example: false
-        isHelpfulSelected:
-          type: boolean
-          example: false
-        isNotHelpfulSelected:
-          type: boolean
-          example: false
+        charts:
+          type: array
+          items:
+            $ref: '#/components/schemas/opportunity_charts'
+        peerReviewRequest:
+          $ref: '#/components/schemas/opportunity_peerReviewRequest'
       example:
-        isEducationalTipAvailable: false
-        comment:
-          Patient appears to be partially responding or appears to have minor
+        charts:
+        - name: Main notes
+          url: https://example.com/example.pdf
+        - name: Main notes
+          url: https://example.com/example.pdf
+        peerReviewRequest:
+          firstName: M.
+          lastName: Singh
+          imageUrl: imageUrl
+          designation: MD
+        comment: Patient appears to be partially responding or appears to have minor
           complication.
-        isHelpfulSelected: false
         category: "Critical Care: Insufficient critical care statement"
-        isNotHelpfulSelected: false
     Pet:
       required:
-        - name
-        - photoUrls
+      - name
+      - photoUrls
       type: object
       properties:
         id:
           type: integer
           format: int64
         category:
-          $ref: "#/components/schemas/Category"
+          $ref: '#/components/schemas/Category'
         name:
           type: string
           example: doggie
@@ -834,28 +868,28 @@ components:
             name: tag
             wrapped: true
           items:
-            $ref: "#/components/schemas/Tag"
+            $ref: '#/components/schemas/Tag'
         status:
           type: string
           description: pet status in the store
           enum:
-            - available
-            - pending
-            - sold
+          - available
+          - pending
+          - sold
       example:
         photoUrls:
-          - photoUrls
-          - photoUrls
+        - photoUrls
+        - photoUrls
         name: doggie
         id: 0
         category:
           name: name
           id: 6
         tags:
-          - name: name
-            id: 1
-          - name: name
-            id: 1
+        - name: name
+          id: 1
+        - name: name
+          id: 1
         status: available
       xml:
         name: Pet
@@ -880,76 +914,116 @@ components:
           type: array
           description: all opportunity objects
           items:
-            $ref: "#/components/schemas/opportunityListObj"
+            $ref: '#/components/schemas/opportunityListObj'
       example:
         data:
-          - reviewRequestedPhysicianName: M. Sing
-            isPeerReviewRequested: true
-            patientInfo:
-              firstName: Andrew
-              lastName: Lange
-              gender: M
-              dateOfService: 24-May-2021
-              age: 39
-            opportunities:
-              - isEducationalTipAvailable: false
-                comment:
-                  Patient appears to be partially responding or appears to have
-                  minor complication.
-                isHelpfulSelected: false
-                category: "Critical Care: Insufficient critical care statement"
-                isNotHelpfulSelected: false
-              - isEducationalTipAvailable: false
-                comment:
-                  Patient appears to be partially responding or appears to have
-                  minor complication.
-                isHelpfulSelected: false
-                category: "Critical Care: Insufficient critical care statement"
-                isNotHelpfulSelected: false
-          - reviewRequestedPhysicianName: M. Sing
-            isPeerReviewRequested: true
-            patientInfo:
-              firstName: Andrew
-              lastName: Lange
-              gender: M
-              dateOfService: 24-May-2021
-              age: 39
-            opportunities:
-              - isEducationalTipAvailable: false
-                comment:
-                  Patient appears to be partially responding or appears to have
-                  minor complication.
-                isHelpfulSelected: false
-                category: "Critical Care: Insufficient critical care statement"
-                isNotHelpfulSelected: false
-              - isEducationalTipAvailable: false
-                comment:
-                  Patient appears to be partially responding or appears to have
-                  minor complication.
-                isHelpfulSelected: false
-                category: "Critical Care: Insufficient critical care statement"
-                isNotHelpfulSelected: false
+        - educationalTips:
+          - description: Patient appears to be partially responding or appears to
+              have minor complication
+            label: "Educational Tips: E&M - Review of System"
+            isHelpful: false
+          - description: Patient appears to be partially responding or appears to
+              have minor complication
+            label: "Educational Tips: E&M - Review of System"
+            isHelpful: false
+          chartId: 1
+          patientInfo:
+            firstName: Andrew
+            lastName: Lange
+            gender: M
+            dateOfService: 24-May-2021
+            age: 39
+          opportunities:
+          - charts:
+            - name: Main notes
+              url: https://example.com/example.pdf
+            - name: Main notes
+              url: https://example.com/example.pdf
+            peerReviewRequest:
+              firstName: M.
+              lastName: Singh
+              imageUrl: imageUrl
+              designation: MD
+            comment: Patient appears to be partially responding or appears to have
+              minor complication.
+            category: "Critical Care: Insufficient critical care statement"
+          - charts:
+            - name: Main notes
+              url: https://example.com/example.pdf
+            - name: Main notes
+              url: https://example.com/example.pdf
+            peerReviewRequest:
+              firstName: M.
+              lastName: Singh
+              imageUrl: imageUrl
+              designation: MD
+            comment: Patient appears to be partially responding or appears to have
+              minor complication.
+            category: "Critical Care: Insufficient critical care statement"
+        - educationalTips:
+          - description: Patient appears to be partially responding or appears to
+              have minor complication
+            label: "Educational Tips: E&M - Review of System"
+            isHelpful: false
+          - description: Patient appears to be partially responding or appears to
+              have minor complication
+            label: "Educational Tips: E&M - Review of System"
+            isHelpful: false
+          chartId: 1
+          patientInfo:
+            firstName: Andrew
+            lastName: Lange
+            gender: M
+            dateOfService: 24-May-2021
+            age: 39
+          opportunities:
+          - charts:
+            - name: Main notes
+              url: https://example.com/example.pdf
+            - name: Main notes
+              url: https://example.com/example.pdf
+            peerReviewRequest:
+              firstName: M.
+              lastName: Singh
+              imageUrl: imageUrl
+              designation: MD
+            comment: Patient appears to be partially responding or appears to have
+              minor complication.
+            category: "Critical Care: Insufficient critical care statement"
+          - charts:
+            - name: Main notes
+              url: https://example.com/example.pdf
+            - name: Main notes
+              url: https://example.com/example.pdf
+            peerReviewRequest:
+              firstName: M.
+              lastName: Singh
+              imageUrl: imageUrl
+              designation: MD
+            comment: Patient appears to be partially responding or appears to have
+              minor complication.
+            category: "Critical Care: Insufficient critical care statement"
     inline_response_200_1:
       type: object
       properties:
         unReadResponses:
           type: array
           items:
-            $ref: "#/components/schemas/inline_response_200_1_unReadResponses"
+            $ref: '#/components/schemas/inline_response_200_1_unReadResponses'
         userDetails:
-          $ref: "#/components/schemas/inline_response_200_1_userDetails"
+          $ref: '#/components/schemas/inline_response_200_1_userDetails'
       example:
         unReadResponses:
-          - cdiSpecialist:
-              firstName: Puru
-              lastName: vanteru
-            message: "Yes, we run all out opportunities through the..."
-            timestamp: 10/03/2022 17:35:44
-          - cdiSpecialist:
-              firstName: Puru
-              lastName: vanteru
-            message: "Yes, we run all out opportunities through the..."
-            timestamp: 10/03/2022 17:35:44
+        - cdiSpecialist:
+            firstName: Puru
+            lastName: vanteru
+          message: "Yes, we run all out opportunities through the..."
+          timestamp: 10/03/2022 17:35:44
+        - cdiSpecialist:
+            firstName: Puru
+            lastName: vanteru
+          message: "Yes, we run all out opportunities through the..."
+          timestamp: 10/03/2022 17:35:44
         userDetails:
           firstName: A.
           lastName: Osman
@@ -960,17 +1034,17 @@ components:
       type: object
       properties:
         data:
-          $ref: "#/components/schemas/inline_response_200_2_data"
+          $ref: '#/components/schemas/inline_response_200_2_data'
       example:
         data:
           potentialRevenue:
             wRUV: "14.9"
             value: $738
           statusCounts:
-            - statusId: 1
-              count: 10
-            - statusId: 1
-              count: 10
+          - statusId: 1
+            count: 10
+          - statusId: 1
+            count: 10
     inline_response_200_3:
       type: object
       properties:
@@ -978,13 +1052,13 @@ components:
           type: array
           description: all Group objects
           items:
-            $ref: "#/components/schemas/inline_response_200_3_data"
+            $ref: '#/components/schemas/inline_response_200_3_data'
       example:
         data:
-          - description: Critical Care
-            id: 1
-          - description: Critical Care
-            id: 1
+        - description: Critical Care
+          id: 1
+        - description: Critical Care
+          id: 1
     pet_petId_body:
       type: object
       properties:
@@ -1017,6 +1091,37 @@ components:
         gender: M
         dateOfService: 24-May-2021
         age: 39
+    opportunity_charts:
+      type: object
+      properties:
+        name:
+          type: string
+          example: Main notes
+        url:
+          type: string
+          example: https://example.com/example.pdf
+      example:
+        name: Main notes
+        url: https://example.com/example.pdf
+    opportunity_peerReviewRequest:
+      type: object
+      properties:
+        firstName:
+          type: string
+          example: M.
+        lastName:
+          type: string
+          example: Singh
+        imageUrl:
+          type: string
+        designation:
+          type: string
+          example: MD
+      example:
+        firstName: M.
+        lastName: Singh
+        imageUrl: imageUrl
+        designation: MD
     inline_response_200_1_cdiSpecialist:
       type: object
       properties:
@@ -1039,7 +1144,7 @@ components:
           type: string
           example: 10/03/2022 17:35:44
         cdiSpecialist:
-          $ref: "#/components/schemas/inline_response_200_1_cdiSpecialist"
+          $ref: '#/components/schemas/inline_response_200_1_cdiSpecialist'
       example:
         cdiSpecialist:
           firstName: Puru
@@ -1099,20 +1204,20 @@ components:
       type: object
       properties:
         potentialRevenue:
-          $ref: "#/components/schemas/inline_response_200_2_data_potentialRevenue"
+          $ref: '#/components/schemas/inline_response_200_2_data_potentialRevenue'
         statusCounts:
           type: array
           items:
-            $ref: "#/components/schemas/inline_response_200_2_data_statusCounts"
+            $ref: '#/components/schemas/inline_response_200_2_data_statusCounts'
       example:
         potentialRevenue:
           wRUV: "14.9"
           value: $738
         statusCounts:
-          - statusId: 1
-            count: 10
-          - statusId: 1
-            count: 10
+        - statusId: 1
+          count: 10
+        - statusId: 1
+          count: 10
     inline_response_200_3_data:
       type: object
       properties:
@@ -1131,8 +1236,8 @@ components:
         application/json:
           schema:
             required:
-              - name
-              - photoUrls
+            - name
+            - photoUrls
             type: object
             properties:
               group:
@@ -1168,8 +1273,8 @@ components:
                         order:
                           type: string
                           enum:
-                            - ASC
-                            - DESC
+                          - ASC
+                          - DESC
                   filters:
                     type: array
                     items:
@@ -1181,19 +1286,18 @@ components:
                         fieldType:
                           type: string
                           enum:
-                            - Date
-                            - String
+                          - Date
+                          - String
                         operator:
                           type: string
                           enum:
-                            - =
-                            - <
-                            - <=
-                            - ">="
+                          - =
+                          - <
+                          - <=
+                          - '>='
                         value:
                           type: string
-                          description:
-                            if fieldType is string then value should be
+                          description: if fieldType is string then value should be
                             2 dates with coma separated value
                           example: "01-02-2022,01-02-2022"
     Pet:
@@ -1201,10 +1305,10 @@ components:
       content:
         application/json:
           schema:
-            $ref: "#/components/schemas/Pet"
+            $ref: '#/components/schemas/Pet'
         application/xml:
           schema:
-            $ref: "#/components/schemas/Pet"
+            $ref: '#/components/schemas/Pet'
       required: true
     UserArray:
       description: List of user object
@@ -1213,7 +1317,7 @@ components:
           schema:
             type: array
             items:
-              $ref: "#/components/schemas/User"
+              $ref: '#/components/schemas/User'
       required: true
   securitySchemes:
     petstore_auth:
