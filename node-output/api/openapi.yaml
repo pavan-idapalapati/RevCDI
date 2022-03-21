@@ -915,6 +915,8 @@ components:
           description: all opportunity objects
           items:
             $ref: '#/components/schemas/opportunityListObj'
+        page:
+          $ref: '#/components/schemas/inline_response_200_page'
       example:
         data:
         - educationalTips:
@@ -1003,6 +1005,10 @@ components:
             comment: Patient appears to be partially responding or appears to have
               minor complication.
             category: "Critical Care: Insufficient critical care statement"
+        page:
+          totalRecords: 100
+          perPageRecords: 10
+          page: 1
     inline_response_200_1:
       type: object
       properties:
@@ -1122,6 +1128,22 @@ components:
         lastName: Singh
         imageUrl: imageUrl
         designation: MD
+    inline_response_200_page:
+      type: object
+      properties:
+        perPageRecords:
+          type: number
+          example: 10
+        page:
+          type: number
+          example: 1
+        totalRecords:
+          type: number
+          example: 100
+      example:
+        totalRecords: 100
+        perPageRecords: 10
+        page: 1
     inline_response_200_1_cdiSpecialist:
       type: object
       properties:
@@ -1235,9 +1257,6 @@ components:
       content:
         application/json:
           schema:
-            required:
-            - name
-            - photoUrls
             type: object
             properties:
               group:

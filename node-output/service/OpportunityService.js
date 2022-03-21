@@ -145,7 +145,12 @@ exports.findAllOpportunities = function(body) {
       "comment" : "Patient appears to be partially responding or appears to have minor complication.",
       "category" : "Critical Care: Insufficient critical care statement"
     } ]
-  } ]
+  } ],
+  "page" : {
+    "totalRecords" : 100,
+    "perPageRecords" : 10,
+    "page" : 1
+  }
 };
     if (Object.keys(examples).length > 0) {
       resolve(examples[Object.keys(examples)[0]]);
