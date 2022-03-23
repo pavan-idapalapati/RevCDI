@@ -87,7 +87,7 @@ exports.findAllOpportunities = function (body) {
 
   const generatorInstance = generateId();
   let tempData = [];
-  for (let i = 0; i < 500; i++) {
+  for (let i = 0; i < 50; i++) {
     const temp = generatorInstance.next().value;
     tempData = [...tempData, temp];
   }
