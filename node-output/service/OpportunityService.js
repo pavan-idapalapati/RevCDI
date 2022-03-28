@@ -17,19 +17,19 @@ exports.dashboardMetaData = function () {
         statusCounts: [
           {
             statusId: 1,
-            count: 12,
+            count: 10,
           },
           {
             statusId: 2,
-            count: 652,
+            count: 20,
           },
           {
             statusId: 3,
-            count: 7,
+            count: 5,
           },
           {
             statusId: 4,
-            count: 18,
+            count: 10,
           },
         ],
       },
