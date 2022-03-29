@@ -49,6 +49,7 @@ exports.dashboardMetaData = function () {
  * returns inline_response_200
  **/
 exports.findAllOpportunities = function (body) {
+  const requestStartTime = new Date().toISOString();
   function* generateId() {
     let id = 6;
     while (true) {
@@ -87,7 +88,7 @@ exports.findAllOpportunities = function (body) {
 
   const generatorInstance = generateId();
   let tempData = [];
-  for (let i = 0; i < 50; i++) {
+  for (let i = 0; i < body.page.recordsPerPage; i++) {
     const temp = generatorInstance.next().value;
     tempData = [...tempData, temp];
   }
@@ -289,6 +290,8 @@ exports.findAllOpportunities = function (body) {
         page: 1,
         totalRecords: 55,
       },
+      startTime: requestStartTime,
+      endTime: new Date().toISOString(),
     };
     if (Object.keys(examples).length > 0) {
       resolve(examples[Object.keys(examples)[0]]);
