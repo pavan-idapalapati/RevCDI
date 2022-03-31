@@ -1,7 +1,7 @@
 "use strict";
 
 var path = require("path");
-var http = require("http");
+var https = require("https");
 var cors = require("cors");
 var fs = require("fs");
 var express = require("express");
@@ -34,7 +34,7 @@ for (let i = 2; i < openApiApp._router.stack.length; i++) {
 }
 
 // Initialize the Swagger middleware
-http.createServer(app).listen(serverPort, function () {
+https.createServer(app).listen(serverPort, function () {
   console.log(
     "Your server is listening on port %d (http://localhost:%d)",
     serverPort,
