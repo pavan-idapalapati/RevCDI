@@ -859,10 +859,8 @@ exports.findAllOpportunities = function (body) {
       additionalFilters[0].field === "DOS"
     ) {
       const [startDate, endDate] = additionalFilters[0].value.split(",");
-      console.log(startDate,endDate,'start date, end date')
       return filteredData.filter((ele) => {
         const dos = ele.patientInfo.dateOfService;
-        console.log('dos is',dos)
         return (
           moment(dos, "DD-MMM-YYYY").isSameOrAfter(
             moment(startDate, "DD-MMM-YYYY")
@@ -875,7 +873,6 @@ exports.findAllOpportunities = function (body) {
     }
   };
   const getResponseData = () => {
-    console.log("body is-----", body);
     let filteredData = getFilteredData();
     if (body.criteria?.filters?.length) {
       filteredData = getAdditionallyFilteredData(filteredData);
