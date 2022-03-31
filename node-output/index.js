@@ -14,8 +14,6 @@ var options = {
   routing: {
     controllers: path.join(__dirname, "./controllers"),
   },
-  key: fs.readFileSync("./key.pem"),
-  cert: fs.readFileSync("./cert.pem"),
 };
 
 var expressAppConfig = oas3Tools.expressAppConfig(
@@ -34,14 +32,19 @@ for (let i = 2; i < openApiApp._router.stack.length; i++) {
 }
 
 // Initialize the Swagger middleware
-https.createServer(app).listen(serverPort, function () {
-  console.log(
-    "Your server is listening on port %d (http://localhost:%d)",
-    serverPort,
-    serverPort
-  );
-  console.log(
-    "Swagger-ui is available on http://localhost:%d/docs",
-    serverPort
-  );
-});
+https
+  .createServer(
+    { key: fs.readFileSync("key.pem"), cert: fs.readFileSync("cert.pem") },
+    app
+  )
+  .listen(serverPort, function () {
+    console.log(
+      "Your server is listening on port %d (http://localhost:%d)",
+      serverPort,
+      serverPort
+    );
+    console.log(
+      "Swagger-ui is available on http://localhost:%d/docs",
+      serverPort
+    );
+  });
