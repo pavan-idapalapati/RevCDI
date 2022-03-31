@@ -3,6 +3,7 @@
 var path = require("path");
 var http = require("http");
 var cors = require("cors");
+var fs = require("fs");
 var express = require("express");
 
 var oas3Tools = require("oas3-tools");
@@ -13,6 +14,8 @@ var options = {
   routing: {
     controllers: path.join(__dirname, "./controllers"),
   },
+  key: fs.readFileSync("./key.pem"),
+  cert: fs.readFileSync("./cert.pem"),
 };
 
 var expressAppConfig = oas3Tools.expressAppConfig(
