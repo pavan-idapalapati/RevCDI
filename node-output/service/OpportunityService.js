@@ -70,11 +70,11 @@ const allOpportunities = [
         charts: [
           {
             name: "Main notes",
-            url: "/revcdi2/samplePdf.pdf",
+            url: "https://demo.divami.com/revcdi2/PotentialCriticalCare.pdf",
           },
           {
             name: "Lab notes",
-            url: "/revcdi2/samplePdf.pdf",
+            url: "https://demo.divami.com/revcdi2/PotentialCriticalCareAlsoCodingAdd.pdf",
           },
         ],
         groupId: 1,
@@ -107,11 +107,11 @@ const allOpportunities = [
         charts: [
           {
             name: "Main notes",
-            url: "/revcdi2/samplePdf.pdf",
+            url: "https://demo.divami.com/revcdi2/EDCaseMDM.pdf",
           },
           {
             name: "Lab notes",
-            url: "/revcdi2/samplePdf.pdf",
+            url: "https://demo.divami.com/revcdi2/PotentialCriticalCareAlsoCodingAdd.pdf",
           },
         ],
         groupId: 1,
@@ -139,11 +139,11 @@ const allOpportunities = [
         charts: [
           {
             name: "Main notes",
-            url: "/revcdi2/samplePdf.pdf",
+            url: "https://demo.divami.com/revcdi2/UCCase1MDMDocumentation.pdf",
           },
           {
             name: "Lab notes",
-            url: "/revcdi2/samplePdf.pdf",
+            url: "https://demo.divami.com/revcdi2/PotentialCriticalCareAlsoCodingAdd.pdf",
           },
         ],
         groupId: 1,
@@ -156,11 +156,11 @@ const allOpportunities = [
         charts: [
           {
             name: "Main notes",
-            url: "/revcdi2/samplePdf.pdf",
+            url: "https://demo.divami.com/revcdi2/UrgentCareChart2MissedEKGInterpretation.pdf",
           },
           {
             name: "Lab notes",
-            url: "/revcdi2/samplePdf.pdf",
+            url: "https://demo.divami.com/revcdi2/PotentialCriticalCareAlsoCodingAdd.pdf",
           },
         ],
         groupId: 2,
@@ -172,11 +172,11 @@ const allOpportunities = [
         charts: [
           {
             name: "Main notes",
-            url: "/revcdi2/samplePdf.pdf",
+            url: "https://demo.divami.com/revcdi2/PotentialCriticalCare.pdf",
           },
           {
             name: "Lab notes",
-            url: "/revcdi2/samplePdf.pdf",
+            url: "https://demo.divami.com/revcdi2/PotentialCriticalCareAlsoCodingAdd.pdf",
           },
         ],
         groupId: 3,
@@ -233,11 +233,11 @@ const allOpportunities = [
         charts: [
           {
             name: "Main notes",
-            url: "/revcdi2/samplePdf.pdf",
+            url: "https://demo.divami.com/revcdi2/UrgentCareChart2MissedEKGInterpretation.pdf",
           },
           {
             name: "Lab notes",
-            url: "/revcdi2/samplePdf.pdf",
+            url: "https://demo.divami.com/revcdi2/PotentialCriticalCareAlsoCodingAdd.pdf",
           },
         ],
         groupId: 3,
@@ -265,11 +265,11 @@ const allOpportunities = [
         charts: [
           {
             name: "Main notes",
-            url: "/revcdi2/samplePdf.pdf",
+            url: "https://demo.divami.com/revcdi2/PotentialCriticalCare.pdf",
           },
           {
             name: "Lab notes",
-            url: "/revcdi2/samplePdf.pdf",
+            url: "https://demo.divami.com/revcdi2/PotentialCriticalCareAlsoCodingAdd.pdf",
           },
         ],
         groupId: 2,
@@ -297,11 +297,11 @@ const allOpportunities = [
         charts: [
           {
             name: "Main notes",
-            url: "/revcdi2/samplePdf.pdf",
+            url: "https://demo.divami.com/revcdi2/UCCase1MDMDocumentation.pdf",
           },
           {
             name: "Lab notes",
-            url: "/revcdi2/samplePdf.pdf",
+            url: "https://demo.divami.com/revcdi2/PotentialCriticalCareAlsoCodingAdd.pdf",
           },
         ],
         groupId: 2,
@@ -329,11 +329,11 @@ const allOpportunities = [
         charts: [
           {
             name: "Main notes",
-            url: "/revcdi2/samplePdf.pdf",
+            url: "https://demo.divami.com/revcdi2/PotentialCriticalCare.pdf",
           },
           {
             name: "Lab notes",
-            url: "/revcdi2/samplePdf.pdf",
+            url: "https://demo.divami.com/revcdi2/PotentialCriticalCareAlsoCodingAdd.pdf",
           },
         ],
         groupId: 3,
@@ -360,11 +360,11 @@ const allOpportunities = [
         charts: [
           {
             name: "Main notes",
-            url: "/revcdi2/samplePdf.pdf",
+            url: "https://demo.divami.com/revcdi2/PotentialCriticalCare.pdf",
           },
           {
             name: "Lab notes",
-            url: "/revcdi2/samplePdf.pdf",
+            url: "https://demo.divami.com/revcdi2/PotentialCriticalCareAlsoCodingAdd.pdf",
           },
         ],
         groupId: 3,
@@ -435,11 +435,11 @@ const allOpportunities = [
         charts: [
           {
             name: "Main notes",
-            url: "/revcdi2/samplePdf.pdf",
+            url: "https://demo.divami.com/revcdi2/UCCase1MDMDocumentation.pdf",
           },
           {
             name: "Lab notes",
-            url: "/revcdi2/samplePdf.pdf",
+            url: "https://demo.divami.com/revcdi2/PotentialCriticalCareAlsoCodingAdd.pdf",
           },
         ],
         groupId: 1,
@@ -468,11 +468,11 @@ const allOpportunities = [
         charts: [
           {
             name: "Main notes",
-            url: "/revcdi2/samplePdf.pdf",
+            url: "https://demo.divami.com/revcdi2/PotentialCriticalCare.pdf",
           },
           {
             name: "Lab notes",
-            url: "/revcdi2/samplePdf.pdf",
+            url: "https://demo.divami.com/revcdi2/PotentialCriticalCareAlsoCodingAdd.pdf",
           },
         ],
         groupId: 1,
@@ -501,11 +501,11 @@ const allOpportunities = [
         charts: [
           {
             name: "Main notes",
-            url: "/revcdi2/samplePdf.pdf",
+            url: "https://demo.divami.com/revcdi2/PotentialCriticalCare.pdf",
           },
           {
             name: "Lab notes",
-            url: "/revcdi2/samplePdf.pdf",
+            url: "https://demo.divami.com/revcdi2/PotentialCriticalCareAlsoCodingAdd.pdf",
           },
         ],
         groupId: 1,
@@ -534,11 +534,11 @@ const allOpportunities = [
         charts: [
           {
             name: "Main notes",
-            url: "/revcdi2/samplePdf.pdf",
+            url: "https://demo.divami.com/revcdi2/PotentialCriticalCare.pdf",
           },
           {
             name: "Lab notes",
-            url: "/revcdi2/samplePdf.pdf",
+            url: "https://demo.divami.com/revcdi2/PotentialCriticalCareAlsoCodingAdd.pdf",
           },
         ],
         groupId: 1,
@@ -567,11 +567,11 @@ const allOpportunities = [
         charts: [
           {
             name: "Main notes",
-            url: "/revcdi2/samplePdf.pdf",
+            url: "https://demo.divami.com/revcdi2/PotentialCriticalCare.pdf",
           },
           {
             name: "Lab notes",
-            url: "/revcdi2/samplePdf.pdf",
+            url: "https://demo.divami.com/revcdi2/PotentialCriticalCareAlsoCodingAdd.pdf",
           },
         ],
         groupId: 1,
@@ -600,11 +600,11 @@ const allOpportunities = [
         charts: [
           {
             name: "Main notes",
-            url: "/revcdi2/samplePdf.pdf",
+            url: "https://demo.divami.com/revcdi2/PotentialCriticalCare.pdf",
           },
           {
             name: "Lab notes",
-            url: "/revcdi2/samplePdf.pdf",
+            url: "https://demo.divami.com/revcdi2/PotentialCriticalCareAlsoCodingAdd.pdf",
           },
         ],
         groupId: 1,
@@ -737,11 +737,11 @@ const allOpportunities = [
         charts: [
           {
             name: "Main notes",
-            url: "/revcdi2/samplePdf.pdf",
+            url: "https://demo.divami.com/revcdi2/PotentialCriticalCare.pdf",
           },
           {
             name: "Lab notes",
-            url: "/revcdi2/samplePdf.pdf",
+            url: "https://demo.divami.com/revcdi2/PotentialCriticalCareAlsoCodingAdd.pdf",
           },
         ],
         groupId: 1,
@@ -769,11 +769,11 @@ const allOpportunities = [
         charts: [
           {
             name: "Main notes",
-            url: "/revcdi2/samplePdf.pdf",
+            url: "https://demo.divami.com/revcdi2/PotentialCriticalCare.pdf",
           },
           {
             name: "Lab notes",
-            url: "/revcdi2/samplePdf.pdf",
+            url: "https://demo.divami.com/revcdi2/PotentialCriticalCareAlsoCodingAdd.pdf",
           },
         ],
         groupId: 1,
@@ -801,11 +801,11 @@ const allOpportunities = [
         charts: [
           {
             name: "Main notes",
-            url: "/revcdi2/samplePdf.pdf",
+            url: "https://demo.divami.com/revcdi2/PotentialCriticalCare.pdf",
           },
           {
             name: "Lab notes",
-            url: "/revcdi2/samplePdf.pdf",
+            url: "https://demo.divami.com/revcdi2/PotentialCriticalCareAlsoCodingAdd.pdf",
           },
         ],
         groupId: 1,
