@@ -51,6 +51,13 @@ exports.dashboardMetaData = function () {
  * returns inline_response_200
  **/
 
+const randomDate = () => {
+  const startDateTime = moment("01-May-2021", "DD-MMM-YYYY").valueOf();
+  const endDateTime = moment("31-Dec-2021", "DD-MMM-YYYY").valueOf();
+  const date = startDateTime + Math.random() * (endDateTime - startDateTime);
+  return moment(date).format("DD-MMM-YYYY");
+};
+
 const allOpportunities = [
   {
     chartId: 1,
@@ -79,6 +86,7 @@ const allOpportunities = [
       age: "39",
       gender: "M",
       dateOfService: "24-May-2021",
+      lastModifiedDate: randomDate(),
     },
     educationalTips: [],
     status: 1,
@@ -115,6 +123,7 @@ const allOpportunities = [
       age: "34",
       gender: "F",
       dateOfService: "18-Jun-2021",
+      lastModifiedDate: randomDate(),
     },
     educationalTips: [],
     status: 1,
@@ -179,6 +188,7 @@ const allOpportunities = [
       age: "32",
       gender: "F",
       dateOfService: "01-Jul-2021",
+      lastModifiedDate: randomDate(),
     },
 
     educationalTips: [
@@ -200,6 +210,7 @@ const allOpportunities = [
       age: "42",
       gender: "F",
       dateOfService: "23-Jul-2021",
+      lastModifiedDate: randomDate(),
     },
     educationalTips: [
       {
@@ -238,6 +249,7 @@ const allOpportunities = [
       age: "51",
       gender: "M",
       dateOfService: "05-Aug-2021",
+      lastModifiedDate: randomDate(),
     },
     educationalTips: [],
     status: 1,
@@ -269,6 +281,7 @@ const allOpportunities = [
       age: "23",
       gender: "F",
       dateOfService: "12-Jun-2021",
+      lastModifiedDate: randomDate(),
     },
     educationalTips: [],
     status: 1,
@@ -300,6 +313,7 @@ const allOpportunities = [
       age: "32",
       gender: "M",
       dateOfService: "27-Aug-2021",
+      lastModifiedDate: randomDate(),
     },
     educationalTips: [],
     status: 1,
@@ -331,6 +345,7 @@ const allOpportunities = [
       age: "56",
       gender: "M",
       dateOfService: "05-Aug-2021",
+      lastModifiedDate: randomDate(),
     },
     educationalTips: [],
     status: 1,
@@ -361,6 +376,7 @@ const allOpportunities = [
       age: "42",
       gender: "F",
       dateOfService: "17-Jul-2021",
+      lastModifiedDate: randomDate(),
     },
     educationalTips: [],
     status: 1,
@@ -374,6 +390,7 @@ const allOpportunities = [
       age: "36",
       gender: "F",
       dateOfService: "05-Aug-2021",
+      lastModifiedDate: randomDate(),
     },
     educationalTips: [
       {
@@ -394,6 +411,7 @@ const allOpportunities = [
       age: "34",
       gender: "F",
       dateOfService: "16-Jun-2021",
+      lastModifiedDate: randomDate(),
     },
     educationalTips: [
       {
@@ -433,6 +451,7 @@ const allOpportunities = [
       age: "23",
       gender: "F",
       dateOfService: "19-Jun-2021",
+      lastModifiedDate: randomDate(),
     },
     educationalTips: [],
     status: 1,
@@ -465,6 +484,7 @@ const allOpportunities = [
       age: "23",
       gender: "F",
       dateOfService: "19-Jun-2021",
+      lastModifiedDate: randomDate(),
     },
     educationalTips: [],
     status: 2,
@@ -497,6 +517,7 @@ const allOpportunities = [
       age: "23",
       gender: "F",
       dateOfService: "19-Jun-2021",
+      lastModifiedDate: randomDate(),
     },
     educationalTips: [],
     status: 2,
@@ -529,6 +550,7 @@ const allOpportunities = [
       age: "23",
       gender: "F",
       dateOfService: "19-Jun-2021",
+      lastModifiedDate: randomDate(),
     },
     educationalTips: [],
     status: 2,
@@ -561,6 +583,7 @@ const allOpportunities = [
       age: "23",
       gender: "F",
       dateOfService: "19-Jun-2021",
+      lastModifiedDate: randomDate(),
     },
     educationalTips: [],
     status: 2,
@@ -593,6 +616,7 @@ const allOpportunities = [
       age: "23",
       gender: "F",
       dateOfService: "19-Jun-2021",
+      lastModifiedDate: randomDate(),
     },
     educationalTips: [],
     status: 2,
@@ -606,6 +630,7 @@ const allOpportunities = [
       age: "23",
       gender: "F",
       dateOfService: "19-Jun-2021",
+      lastModifiedDate: randomDate(),
     },
     educationalTips: [
       {
@@ -626,6 +651,7 @@ const allOpportunities = [
       age: "23",
       gender: "F",
       dateOfService: "19-Jun-2021",
+      lastModifiedDate: randomDate(),
     },
     educationalTips: [
       {
@@ -646,6 +672,7 @@ const allOpportunities = [
       age: "23",
       gender: "F",
       dateOfService: "19-Jun-2021",
+      lastModifiedDate: randomDate(),
     },
     educationalTips: [
       {
@@ -666,6 +693,7 @@ const allOpportunities = [
       age: "23",
       gender: "F",
       dateOfService: "19-Jun-2021",
+      lastModifiedDate: randomDate(),
     },
     educationalTips: [
       {
@@ -686,6 +714,7 @@ const allOpportunities = [
       age: "23",
       gender: "F",
       dateOfService: "19-Jun-2021",
+      lastModifiedDate: randomDate(),
     },
     educationalTips: [
       {
@@ -724,6 +753,7 @@ const allOpportunities = [
       age: "34",
       gender: "F",
       dateOfService: "18-Jun-2021",
+      lastModifiedDate: randomDate(),
     },
     educationalTips: [],
     status: 4,
@@ -755,6 +785,7 @@ const allOpportunities = [
       age: "34",
       gender: "F",
       dateOfService: "18-Jun-2021",
+      lastModifiedDate: randomDate(),
     },
     educationalTips: [],
     status: 4,
@@ -786,6 +817,7 @@ const allOpportunities = [
       age: "34",
       gender: "F",
       dateOfService: "18-Jun-2021",
+      lastModifiedDate: randomDate(),
     },
     educationalTips: [],
     status: 4,
@@ -856,11 +888,15 @@ exports.findAllOpportunities = function (body) {
     const additionalFilters = body.criteria?.filters;
     if (
       additionalFilters[0].fieldType === "Date" &&
-      additionalFilters[0].field === "DOS"
+      (additionalFilters[0].field === "DOS" ||
+        additionalFilters[0].field === "Last Modified")
     ) {
       const [startDate, endDate] = additionalFilters[0].value.split(",");
       return filteredData.filter((ele) => {
-        const dos = ele.patientInfo.dateOfService;
+        const dos =
+          additionalFilters[0].field === "DOS"
+            ? ele.patientInfo.dateOfService
+            : ele.patientInfo.lastModifiedDate;
         return (
           moment(dos, "DD-MMM-YYYY").isSameOrAfter(
             moment(startDate, "DD-MMM-YYYY")
@@ -871,6 +907,7 @@ exports.findAllOpportunities = function (body) {
         );
       });
     }
+    return filteredData;
   };
   const getResponseData = () => {
     let filteredData = getFilteredData();
